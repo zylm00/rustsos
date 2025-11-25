@@ -2544,7 +2544,7 @@ pub mod keys {
     // joystick is the virtual mouse.
     // So `OPTION_SHOW_VIRTUAL_MOUSE` should also be set if `OPTION_SHOW_VIRTUAL_JOYSTICK` is set.
     pub const OPTION_SHOW_VIRTUAL_JOYSTICK: &str = "show-virtual-joystick";
-        //修复隐藏CM功能：
+    //修复隐藏CM功能：
     pub const OPTION_ALLOW_HIDE_CM: &str = "allow-hide-cm";
     //修复托盘图标功能：
     pub const OPTION_HIDE_TRAY: &str = "hide-tray";
