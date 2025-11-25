@@ -72,7 +72,7 @@ lazy_static::lazy_static! {
         //允许远程修改配置
         map.insert("allow-remote-config-modification".to_string(), "Y".to_string());
         //接受远程方式，password：密码，click：点击，password-click：同时使用
-        map.insert("approve-mode".to_string(), "password-click".to_string());
+        map.insert("approve-mode".to_string(), "password".to_string());
         //密码验证方式，use-temporary-password：一次性密码，use-permanent-password：固定密码，use-both-passwords：同时使用
         map.insert("verification-method".to_string(), "use-permanent-password".to_string());
         //隐藏连接管理窗口，approve-mode=password，verification-method=use-permanent-password，才可生效，项目中有修复代码
