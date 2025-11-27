@@ -230,15 +230,15 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 4),
+                                horizontal: 12, vertical: 6),
                             decoration: BoxDecoration(
-                              color: Color(0xFF2F65BA),
+                              color: Color(0xFF2576E3),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Text(
-                              translate("Copy"),
+                              translate("复制"),
                               style: const TextStyle(
-                                  color: Colors.white, fontSize: 12),
+                                  color: Colors.white, fontSize: 16),
                             ),
                           ),
                         ),
@@ -433,7 +433,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
           ),
           if (!isOutgoingOnly)
             Text(
-              translate("desk_tip"),
+              translate("点击复制发给小伙伴"),
               overflow: TextOverflow.clip,
               style: Theme.of(context).textTheme.bodySmall,
             ),
