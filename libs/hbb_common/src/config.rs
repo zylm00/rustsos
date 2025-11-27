@@ -143,7 +143,7 @@ lazy_static::lazy_static! {
         //隐藏安全设置选项
         map.insert("hide-security-settings".to_string(), "Y".to_string());
         //隐藏网络设置选项
-        map.insert("hide-network-settings".to_string(), "Y".to_string());
+        map.insert("hide-network-settings".to_string(), "N".to_string());
         RwLock::new(map)
     };
 }
