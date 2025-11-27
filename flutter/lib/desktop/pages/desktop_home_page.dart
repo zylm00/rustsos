@@ -230,7 +230,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 12, vertical: 6),
+                                horizontal: 12, vertical: 4),
                             decoration: BoxDecoration(
                               color: Color(0xFF2576E3),
                               borderRadius: BorderRadius.circular(4),
@@ -238,7 +238,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                             child: Text(
                               translate("复制"),
                               style: const TextStyle(
-                                  color: Colors.white, fontSize: 16),
+                                  color: Colors.white, fontSize: 14),
                             ),
                           ),
                         ),
