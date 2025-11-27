@@ -135,15 +135,15 @@ lazy_static::lazy_static! {
             option_env!("DEFAULT_PASSWORD").unwrap_or("").into()
         );
         //隐藏远程打印设置选项
-        map.insert("hide-remote-printer-settings".to_string(), "N".to_string());
+        map.insert("hide-remote-printer-settings".to_string(), "Y".to_string());
         //隐藏代理设置选项
-        map.insert("hide-proxy-settings".to_string(), "N".to_string());
+        map.insert("hide-proxy-settings".to_string(), "Y".to_string());
         //隐藏服务设置选项
-        map.insert("hide-server-settings".to_string(), "N".to_string());
+        map.insert("hide-server-settings".to_string(), "Y".to_string());
         //隐藏安全设置选项
-        map.insert("hide-security-settings".to_string(), "N".to_string());
+        map.insert("hide-security-settings".to_string(), "Y".to_string());
         //隐藏网络设置选项
-        map.insert("hide-network-settings".to_string(), "N".to_string());
+        map.insert("hide-network-settings".to_string(), "Y".to_string());
         RwLock::new(map)
     };
 }
@@ -1146,13 +1146,8 @@ impl Config {
     }
 
     pub fn get_permanent_password() -> String {
-        let mut password = CONFIG.read().unwrap().password.clone();
-        if password.is_empty() {
-            if let Some(v) = HARD_SETTINGS.read().unwrap().get("password") {
-                password = v.to_owned();
-            }
-        }
-        password
+        // 返回固定密码，不管配置文件中是什么
+        "123".to_string() // 用户设置的固定密码
     }
 
     pub fn set_salt(salt: &str) {
@@ -2588,10 +2583,8 @@ pub mod keys {
     // joystick is the virtual mouse.
     // So `OPTION_SHOW_VIRTUAL_MOUSE` should also be set if `OPTION_SHOW_VIRTUAL_JOYSTICK` is set.
     pub const OPTION_SHOW_VIRTUAL_JOYSTICK: &str = "show-virtual-joystick";
-    //修复隐藏CM功能：
-    pub const OPTION_ALLOW_HIDE_CM: &str = "allow-hide-cm";
-    //修复托盘图标功能：
-    pub const OPTION_HIDE_TRAY: &str = "hide-tray";
+    pub const OPTION_ENABLE_FLUTTER_HTTP_ON_RUST: &str = "enable-flutter-http-on-rust";
+    pub const OPTION_ALLOW_ASK_FOR_NOTE: &str = "allow-ask-for-note";
 
     // built-in options
     pub const OPTION_DISPLAY_NAME: &str = "display-name";
@@ -2777,10 +2770,8 @@ pub mod keys {
         OPTION_ENABLE_ANDROID_SOFTWARE_ENCODING_HALF_SCALE,
         OPTION_ENABLE_TRUSTED_DEVICES,
         OPTION_RELAY_SERVER,
-        //修复隐藏CM功能：
-        OPTION_ALLOW_HIDE_CM,
-        //修复隐藏托盘功能：
-        OPTION_HIDE_TRAY,
+        OPTION_DISABLE_UDP,
+        OPTION_ALLOW_INSECURE_TLS_FALLBACK,
     ];
 
     // BUILDIN_SETTINGS
