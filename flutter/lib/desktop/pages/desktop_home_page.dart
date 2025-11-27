@@ -221,6 +221,27 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                                   ?.color
                                   ?.withOpacity(0.5)),
                         ).marginOnly(top: 5),
+                        InkWell(
+                          onTap: () {
+                            Clipboard.setData(ClipboardData(
+                                text:
+                                    '${model.serverId.text}\n${model.serverPasswd.text}'));
+                            showToast(translate("Copied"));
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: Color(0xFF2576E3),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Text(
+                              translate("复制"),
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 15),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -358,32 +379,6 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                           onHover: (value) => refreshHover.value = value,
                         ).marginOnly(right: 8, top: 4),
                     ],
-                  ),
-
-                  // 复制按钮（右移两格）
-                  SizedBox(height: 10),
-                  InkWell(
-                    onTap: () {
-                      // 同时复制 ID + 一次性密码
-                      Clipboard.setData(ClipboardData(
-                        text:
-                            '${model.serverId.text}\n${model.serverPasswd.text}',
-                      ));
-                      showToast(translate("Copied"));
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 8),
-                      decoration: BoxDecoration(
-                        color: Color(0xFF2576E3),
-                        borderRadius: BorderRadius.circular(7),
-                      ),
-                      child: Text(
-                        translate("复制"),
-                        style: const TextStyle(
-                            color: Colors.white, fontSize: 18),
-                      ),
-                    ),
                   ),
                 ],
               ),
