@@ -238,7 +238,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                             child: Text(
                               translate("复制"),
                               style: const TextStyle(
-                                  color: Colors.white, fontSize: 14),
+                                  color: Colors.white, fontSize: 15),
                             ),
                           ),
                         ),
