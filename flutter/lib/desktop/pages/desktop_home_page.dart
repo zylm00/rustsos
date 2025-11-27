@@ -221,7 +221,27 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                                   ?.color
                                   ?.withOpacity(0.5)),
                         ).marginOnly(top: 5),
-                        buildPopupMenu(context)
+                        InkWell(
+                          onTap: () {
+                            Clipboard.setData(ClipboardData(
+                                text:
+                                    '${model.serverId.text}\n${model.serverPasswd.text}'));
+                            showToast(translate("Copied"));
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: Color(0xFF2F65BA),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Text(
+                              translate("Copy"),
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 12),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
